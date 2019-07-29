@@ -1,13 +1,10 @@
-package com.company.account;
-
-import com.company.people.customer.Customer;
-import com.company.people.person.Person;
-import com.company.registrationServices.RegistrationServices;
+package src.com.company.account;
 
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
-import java.util.*;
-import java.util.function.Predicate;
+
+import src.com.company.people.customer.Customer;
+import src.com.company.registrationServices.RegistrationServices;
 
 public class Account {
 

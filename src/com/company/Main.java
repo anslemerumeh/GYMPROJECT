@@ -1,18 +1,13 @@
-package com.company;
+package src.com.company;
 
-import com.company.account.Account;
-import com.company.exceptions.packagedoesnotexist.PackageDoesNotExistException;
-import com.company.exceptions.registrationtype.RegistrationTypeRequireException;
-import com.company.people.customer.Customer;
-import com.company.people.employee.Employee;
-import com.company.people.person.Person;
-import com.company.registrationServices.RegistrationServices;
-
-
-import java.util.*;
-
-import java.util.Date;
+import java.util.Calendar;
+import java.util.Map;
 import java.util.Scanner;
+
+import src.com.company.account.Account;
+import src.com.company.exceptions.registrationtype.RegistrationTypeRequireException;
+import src.com.company.people.customer.Customer;
+import src.com.company.registrationServices.RegistrationServices;
 
 public class Main {
 

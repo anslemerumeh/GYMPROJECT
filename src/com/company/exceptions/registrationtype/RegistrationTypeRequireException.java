@@ -1,4 +1,4 @@
-package com.company.exceptions.registrationtype;
+package src.com.company.exceptions.registrationtype;
 
 public class RegistrationTypeRequireException extends Exception {
 

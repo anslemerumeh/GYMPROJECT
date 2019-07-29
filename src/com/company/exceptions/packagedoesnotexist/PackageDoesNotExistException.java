@@ -1,4 +1,4 @@
-package com.company.exceptions.packagedoesnotexist;
+package src.com.company.exceptions.packagedoesnotexist;
 
 public class PackageDoesNotExistException extends Exception{
 

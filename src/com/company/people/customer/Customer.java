@@ -1,9 +1,6 @@
-package com.company.people.customer;
+package src.com.company.people.customer;
 
-import com.company.account.Account;
-import com.company.people.person.Person;
-
-import java.util.*;
+import src.com.company.people.person.Person;
 
 public class Customer extends Person {
 

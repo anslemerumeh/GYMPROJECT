@@ -1,7 +1,6 @@
-package com.company.people.employee;
+package src.com.company.people.employee;
 
-import com.company.people.customer.Customer;
-import com.company.people.person.Person;
+import src.com.company.people.person.Person;
 
 public class Employee extends Person{
 

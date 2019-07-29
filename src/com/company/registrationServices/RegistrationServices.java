@@ -1,17 +1,18 @@
-package com.company.registrationServices;
-
-import com.company.account.Account;
-import com.company.exceptions.packagedoesnotexist.PackageDoesNotExistException;
-import com.company.factories.personfactory.PersonFactory;
-import com.company.people.customer.Customer;
-import com.company.people.employee.Employee;
-import com.company.people.person.Person;
-
+package src.com.company.registrationServices;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import src.com.company.account.Account;
+import src.com.company.factories.personfactory.PersonFactory;
+import src.com.company.people.customer.Customer;
+import src.com.company.people.employee.Employee;
+import src.com.company.people.person.Person;
 
 public class RegistrationServices {
 

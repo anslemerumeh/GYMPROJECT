@@ -1,10 +1,9 @@
-package com.company.people.person;
-
-import com.company.account.Account;
+package src.com.company.people.person;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
+import src.com.company.account.Account;
 
 public abstract class Person {
 
