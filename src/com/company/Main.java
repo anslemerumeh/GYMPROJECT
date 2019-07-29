@@ -108,10 +108,10 @@ public class Main {
                         startYear = scanner.nextInt();
                         System.out.println();
 
-                        System.out.println("Hour");
+                        System.out.print("Hour to start: ");
                         hour = scanner.nextInt();
-
-                        System.out.println("Minutes");
+                        System.out.println();
+                        System.out.print("Minutes: ");
                         minute = scanner.nextInt();
                         // break;
                     }
@@ -224,7 +224,7 @@ public class Main {
                     } else
 
                         System.out.println("Keep up the good workout.");
-                     
+
             break;
 
                 case 5:
