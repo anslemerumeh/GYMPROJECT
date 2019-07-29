@@ -33,6 +33,9 @@ public class Main {
             System.out.println("Press 1 to register");
             System.out.println("Press 2 to display customer information");
             System.out.println("Press 3 to proceed to package activation");
+            System.out.println("Press 4 to check account status");
+            System.out.println("Press 5 to shutdown");
+
             System.out.println("=================================");
             int option = scanner.nextInt();
             System.out.println("-------------------------------");
@@ -65,11 +68,11 @@ public class Main {
                         }
                     }
                     System.out.println("Enter first name");
-                     fname = scanner.nextLine();
+                    fname = scanner.nextLine();
 
 
                     System.out.println("Enter surname");
-                     surname = scanner.nextLine();
+                    surname = scanner.nextLine();
 
                     System.out.println("Enter address");
                     address = scanner.nextLine();
@@ -93,25 +96,25 @@ public class Main {
                         String answer = scanner.nextLine();
                         switch (answer) {
                             case "y":*/
-                                System.out.println("********Workout information**********");
-                                System.out.println();
-                                System.out.println("Enter start date");
-                                startDate = scanner.nextInt();
+                        System.out.println("********Workout information**********");
+                        System.out.println();
+                        System.out.println("Enter start date");
+                        startDate = scanner.nextInt();
 
-                                System.out.println("Enter start month");
-                                startMonth = scanner.nextInt();
+                        System.out.println("Enter start month");
+                        startMonth = scanner.nextInt();
 
-                                System.out.println("Enter start year");
-                                startYear = scanner.nextInt();
-                                System.out.println();
+                        System.out.println("Enter start year");
+                        startYear = scanner.nextInt();
+                        System.out.println();
 
-                                System.out.println("Hour");
-                                hour = scanner.nextInt();
+                        System.out.println("Hour");
+                        hour = scanner.nextInt();
 
-                                System.out.println("Minutes");
-                                minute = scanner.nextInt();
-                               // break;
-                        }
+                        System.out.println("Minutes");
+                        minute = scanner.nextInt();
+                        // break;
+                    }
 
 
                     System.out.println();
@@ -123,7 +126,7 @@ public class Main {
                     Calendar cal = Calendar.getInstance();
                     // services.add(registration);
 
-                   // break;
+                    // break;
 
                 case 2:
                     System.out.println("************Information details**************");
@@ -141,100 +144,92 @@ public class Main {
                     }
                     break;
                 case 3:
-                    break outer;
-            }
-        } while (i < 5);
 
-
-        System.out.println("*******Packages Activation**********");
-        System.out.println();
-        int choice = 0, n = 0;
-        long idNo;
-        do {
-
-            System.out.println("Enter Membership number");
-            idNo = scanner.nextLong();
-            //for (int x = 0; x < registration.getPackages().size(); x++) {
-            //try {
-            // if (idNo == registration.getPersons().get(x).getIdNumber()) {
+            System.out.println("*******Packages Activation**********");
             System.out.println();
-            System.out.println("Select package");
-            for (Map.Entry entry : registration.membershipPackages().entrySet())
-                System.out.println(entry.getKey() + " " + entry.getValue());
-
-            System.out.println("----------------------------");
-            choice = scanner.nextInt();
-            System.out.println("----------------------------");
-            System.out.println();
+            int choice = 0, n = 0;
+            long idNo;
 
 
-            System.out.println("Package: " + registration.activatePackages(choice, idNo));
-            // }
+                System.out.println("Enter Membership number");
+                idNo = scanner.nextLong();
+                //for (int x = 0; x < registration.getPackages().size(); x++) {
+                //try {
+                // if (idNo == registration.getPersons().get(x).getIdNumber()) {
+                System.out.println();
+                System.out.println("Select package");
+                for (Map.Entry entry : registration.membershipPackages().entrySet())
+                    System.out.println(entry.getKey() + " " + entry.getValue());
+
+                System.out.println("----------------------------");
+                choice = scanner.nextInt();
+                System.out.println("----------------------------");
+                System.out.println();
+
+
+                System.out.println("Package: " + registration.activatePackages(choice, idNo));
+                // }
                 /*}catch (NullPointerException ex){
                 System.out.println("Abel");
             }
             }*/
+                System.out.println();
+
+
+            try {
+                int o = 0;
+                System.out.println("Package information");
+                do {
+                    System.out.println("NAME: " + registration.getPersons().get(o).getSurname().toUpperCase());
+                    System.out.println("Start date: " + Customer.getAccounts().get(o).getStartDate().getHour() + ":" +
+                            Customer.getAccounts().get(o).getStartDate().getMinute() + " " +
+                            Customer.getAccounts().get(o).getStartDate().getDayOfWeek() + ", " + Customer.getAccounts().get(o).getStartDate().getDayOfMonth()
+                            + " " + Customer.getAccounts().get(o).getStartDate().getMonth() + ", " + Customer.getAccounts().get(o).getStartDate().getYear());
+
+                    System.out.println("End date: " + +Customer.getAccounts().get(o).getEndDate().getHour() + ":" +
+                            Customer.getAccounts().get(o).getEndDate().getMinute() + " " +
+                            Customer.getAccounts().get(o).getEndDate().getDayOfWeek() + ", " + Customer.getAccounts().get(o).getEndDate().getDayOfMonth()
+                            + " " + Customer.getAccounts().get(o).getEndDate().getMonth() + ", " + Customer.getAccounts().get(o).getEndDate().getYear());
+                    System.out.println("Package: " + Customer.getAccounts().get(o).getSelectedPackage());
+                    System.out.println("--------------------------------------------");
+                    System.out.println();
+
+                    o++;
+                } while (o < registration.getPersons().size());
+            } catch (NullPointerException ex) {
+                System.out.println("Null pointer");
+            }
+            break;
+
+                case 4:
+
+            System.out.println("*********Account status********");
             System.out.println();
-            n++;
-        } while (n < registration.getPersons().size());
+            System.out.println();
+                    System.out.println("Enter membership number");
+                    long number = scanner.nextLong();
 
-        try {
-            int o = 0;
-            System.out.println("Package information");
-            do {
-                System.out.println("NAME: " + registration.getPersons().get(o).getSurname().toUpperCase());
-                System.out.println("Start date: " + Customer.getAccounts().get(o).getStartDate().getHour() + ":" +
-                        Customer.getAccounts().get(o).getStartDate().getMinute() + " " +
-                        Customer.getAccounts().get(o).getStartDate().getDayOfWeek() + ", " + Customer.getAccounts().get(o).getStartDate().getDayOfMonth()
-                        + " " + Customer.getAccounts().get(o).getStartDate().getMonth() + ", " + Customer.getAccounts().get(o).getStartDate().getYear());
+                    Account account = new Account();
+                    System.out.println("Status: " + (account.accountStatus(number)));
+                    System.out.println();
+                    if (account.accountStatus(number) == false) {
+                        System.out.println("Does the customer want to extend package(y/n)?");
+                        String button = scanner.nextLine();
+                        if (button.equalsIgnoreCase("Y"))
+                            System.out.println("choose the desired package ");
+                        System.out.println(registration.membershipPackages());
+                        int select = scanner.nextInt();
+                        account.extendPackage(select, number);
 
-                System.out.println("End date: " + +Customer.getAccounts().get(o).getEndDate().getHour() + ":" +
-                        Customer.getAccounts().get(o).getEndDate().getMinute() + " " +
-                        Customer.getAccounts().get(o).getEndDate().getDayOfWeek() + ", " + Customer.getAccounts().get(o).getEndDate().getDayOfMonth()
-                        + " " + Customer.getAccounts().get(o).getEndDate().getMonth() + ", " + Customer.getAccounts().get(o).getEndDate().getYear());
-                System.out.println("Package: " + Customer.getAccounts().get(o).getSelectedPackage());
-                System.out.println("--------------------------------------------");
-                System.out.println();
+                    } else
 
-                o++;
-            } while (o < registration.getPersons().size());
-        } catch (NullPointerException ex) {
-            System.out.println("Null pointer");
+                        System.out.println("Keep up the good workout.");
+                     
+            break;
+
+                case 5:
+                    break outer;
         }
-
-        System.out.println("*********Account status********");
-        System.out.println("Press 1 to check account status");
-        System.out.println("Press 2 to shutdown");
-        int option = scanner.nextInt();
-
-        //outer:
-        switch (option) {
-
-
-            case 1:
-
-                System.out.println();
-                System.out.println("Enter membership number");
-                long number = scanner.nextLong();
-
-                Account account = new Account();
-                System.out.println("Status: " + (account.accountStatus(number)));
-                System.out.println();
-                if (account.accountStatus(number)==false) {
-           System.out.println("Does the customer want to extend package(y/n)?");
-               String button = scanner.nextLine();
-               if(button.equalsIgnoreCase("Y"))
-                   System.out.println("choose the desired package ");
-                   System.out.println(registration.membershipPackages());
-               int select = scanner.nextInt();
-               account.extendPackage(select, number);
-
-                }else
-
-                    System.out.println("Keep up the good workout.");
-                break;
-            case 2:
-               // break outer;
-        }
+        } while (i < 5);
     }
 }
