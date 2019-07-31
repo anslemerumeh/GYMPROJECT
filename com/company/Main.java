@@ -83,6 +83,7 @@ public class Main {
 				int c = 0;
 				do {
 					try {
+						scanner.nextLine();
 					System.out.println("Enter Cell Number");
 					cellNumber = scanner.nextInt();
 					break;
@@ -109,6 +110,7 @@ public class Main {
 					int d = 0;
 					do {
 						try {
+							scanner.nextLine();
 					System.out.println("Enter start date");
 					startDate = scanner.nextInt();
 
