@@ -50,6 +50,7 @@ public class Main {
 
 				for (int a = 0; a < 5;) {
 					try {
+
 						scanner.nextLine();
 						System.out.println("Enter registration type");
 						type = scanner.nextLine();
@@ -79,10 +80,10 @@ public class Main {
 
 				System.out.println("Enter Date of birth(date/month/year)");
 				dateOfBirth = scanner.nextLine();
-				
+
 				System.out.println("Enter Cell Number");
 				cellNumber = scanner.nextInt();
-				
+
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
 					System.out.println("Enter username");
 					username = scanner.nextLine();
@@ -113,8 +114,8 @@ public class Main {
 				System.out.println();
 				// List<RegistrationServices> services = new ArrayList<>();
 				System.out.println("ID: " + idNumber);
-				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber,cellNumber, username,
-						password, startDate, startMonth, startYear);
+				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber, cellNumber,
+						username, password, startDate, startMonth, startYear);
 
 				// break;
 
