@@ -41,6 +41,7 @@ public class Main {
 			System.out.println("=================================");
 			 option = scanner.nextInt();
 			System.out.println("-------------------------------");
+			break;
 			}catch(InputMismatchException ex) {
 				System.out.println("Wrong Input:");
 			}
