@@ -80,9 +80,17 @@ public class Main {
 
 				System.out.println("Enter Date of birth(date/month/year)");
 				dateOfBirth = scanner.nextLine();
-
-				System.out.println("Enter Cell Number");
-				cellNumber = scanner.nextInt();
+				int c = 0;
+				do {
+					try {
+					System.out.println("Enter Cell Number");
+					cellNumber = scanner.nextInt();
+					break;
+					}catch(InputMismatchException ex) {
+					System.out.println("Wrong Input:");
+					}
+				}while(c<1);
+				
 
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
 					System.out.println("Enter username");
@@ -98,6 +106,9 @@ public class Main {
 					 */
 					System.out.println("********Workout information**********");
 					System.out.println();
+					int d = 0;
+					do {
+						try {
 					System.out.println("Enter start date");
 					startDate = scanner.nextInt();
 
@@ -107,8 +118,12 @@ public class Main {
 					System.out.println("Enter start year");
 					startYear = scanner.nextInt();
 					System.out.println();
-
-					// break;
+					break;
+						}catch(InputMismatchException ex) {
+							System.out.println("Wrong Input");
+						}
+					}while(d < 1);
+					
 				}
 
 				System.out.println();
