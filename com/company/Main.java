@@ -21,6 +21,7 @@ public class Main {
 		String type = "", username = "", password = "";
 		int i = 0, startDate = 0, startMonth = 0, startYear = 0;
 		long idNumber = 100200;
+		int cellNumber = 0;
 
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
 		outer: do {
@@ -78,7 +79,10 @@ public class Main {
 
 				System.out.println("Enter Date of birth(date/month/year)");
 				dateOfBirth = scanner.nextLine();
-
+				
+				System.out.println("Enter Cell Number");
+				cellNumber = scanner.nextInt();
+				
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
 					System.out.println("Enter username");
 					username = scanner.nextLine();
@@ -109,7 +113,7 @@ public class Main {
 				System.out.println();
 				// List<RegistrationServices> services = new ArrayList<>();
 				System.out.println("ID: " + idNumber);
-				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber, username,
+				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber,cellNumber, username,
 						password, startDate, startMonth, startYear);
 
 				// break;
