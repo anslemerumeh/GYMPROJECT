@@ -144,7 +144,7 @@ public class Main {
 						scanner.nextLine();
 						System.out.println("Enter Membership number");
 						idNo = scanner.nextLong();
-						for (int x = 0; x <= registration.getPackages().size(); x++) {
+						for (int x = 0; x < registration.getPackages().size(); x++) {
 							// try {
 							if (idNo == RegistrationServices.getPersons().get(x).getIdNumber()) {
 								idNumberFound = 100;
