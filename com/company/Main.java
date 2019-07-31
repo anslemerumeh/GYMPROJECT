@@ -26,7 +26,11 @@ public class Main {
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
 		outer: do {
 			idNumber++;
-
+			int e = 0;
+			int option = 0;
+			do {
+				try {
+					scanner.nextLine();
 			System.out.println();
 			System.out.println("================================");
 			System.out.println("Press 1 to register");
@@ -35,8 +39,13 @@ public class Main {
 			System.out.println("Press 4 to check account status");
 			System.out.println("Press 5 to shutdown");
 			System.out.println("=================================");
-			int option = scanner.nextInt();
+			 option = scanner.nextInt();
 			System.out.println("-------------------------------");
+			}catch(InputMismatchException ex) {
+				System.out.println("Wrong Input:");
+			}
+			}while(e < 1);
+		
 			switch (option) {
 
 			case 1:
