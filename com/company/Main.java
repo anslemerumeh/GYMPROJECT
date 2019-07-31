@@ -220,7 +220,7 @@ public class Main {
 						scanner.nextLine();
 						System.out.println("Enter membership number");
 						long number = scanner.nextLong();
-						for (int a = 0; a <= RegistrationServices.getPersons().size(); a++) {
+						for (int a = 0; a < RegistrationServices.getPersons().size(); a++) {
 							if (number == RegistrationServices.getPersons().get(a).getIdNumber()) {
 								idNumberFound1 = 100;
 							}
