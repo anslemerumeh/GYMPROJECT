@@ -44,8 +44,8 @@ public class RegistrationServices {
 	}
 
 	public void registration(String type, String fname, String surname, String address, String email,
-			String dateOfBirth, long idNumber, String username, String password, int startDate, int startMonth,
-			int startYear) {
+			String dateOfBirth, long idNumber, int cellNumber, String username, String password, int startDate,
+			int startMonth, int startYear) {
 
 		Person person = PersonFactory.createPerson(type);
 		if (type.equalsIgnoreCase("CUSTOMER")) {
@@ -61,7 +61,7 @@ public class RegistrationServices {
 		person.setSurname(surname);
 		person.setDateOfBirth(dateOfBirth);
 		person.setAddress(address);
-		// person.setCellNumber(cellNumber);
+		person.setCellNumber(cellNumber);
 		person.setEmail(email);
 		person.setIdNumber(idNumber);
 		RegistrationServices.persons.add(person);
