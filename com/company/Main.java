@@ -12,31 +12,38 @@ import com.company.registrationServices.RegistrationServices;
 
 public class Main {
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		// write your code here
 		RegistrationServices registration = new RegistrationServices();
 		Scanner scanner = new Scanner(System.in);
 		String type = "", username = "", password = "";
-		int i = 0, startDate = 0, startMonth = 0, startYear = 0;
+		int i = 0, startDate = 0, startMonth = 0, startYear = 0, option = 0;
 		long phoneNumber = 0;
 		long idNumber = 100200;
 
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
 		outer: do {
 			idNumber++;
-
-			System.out.println();
-			System.out.println("================================");
-			System.out.println("Press 1 to register");
-			System.out.println("Press 2 to display customer information");
-			System.out.println("Press 3 to proceed to package activation");
-			System.out.println("Press 4 to check account status");
-			System.out.println("Press 5 to extend package");
-			System.out.println("Press 6 to shutdown");
-			System.out.println("=================================");
-			int option = scanner.nextInt();
-			System.out.println("-------------------------------");
+			do {
+				try {
+					scanner.nextLine();
+					System.out.println();
+					System.out.println("================================");
+					System.out.println("Press 1 to register");
+					System.out.println("Press 2 to display customer information");
+					System.out.println("Press 3 to proceed to package activation");
+					System.out.println("Press 4 to check account status");
+					System.out.println("Press 5 to extend package");
+					System.out.println("Press 6 to shutdown");
+					System.out.println("=================================");
+					option = scanner.nextInt();
+					System.out.println("-------------------------------");
+					break;
+				} catch (InputMismatchException ex) {
+					System.out.println("Wrong input");
+					System.out.println();
+				}
+			} while (i < 5);
 			switch (option) {
 
 			case 1:
