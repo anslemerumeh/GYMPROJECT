@@ -19,11 +19,11 @@ public class Main {
 		String type = "", username = "", password = "";
 		int i = 0, startDate = 0, startMonth = 0, startYear = 0, option = 0;
 		long phoneNumber = 0;
-		long idNumber = 100200;
+		long idNumber;
 
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
 		outer: do {
-			idNumber++;
+
 			do {
 				try {
 
@@ -110,12 +110,16 @@ public class Main {
 				} while (i < 5);
 
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
+					idNumber = 100200;
+					idNumber++;
 					System.out.println("Enter username");
 					username = scanner.nextLine();
 
 					System.out.println("Enter username");
 					password = scanner.nextLine();
 				} else {
+					idNumber = 200100;
+					idNumber++;
 					System.out.println();
 					/*
 					 * System.out.println("Does the customer want to start workout now(y/n)?");
