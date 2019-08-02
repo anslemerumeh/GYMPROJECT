@@ -1,6 +1,7 @@
 package com.company.registrationServices;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -44,8 +45,8 @@ public class RegistrationServices {
 	}
 
 	public void registration(String type, String fname, String surname, String address, String email,
-			String dateOfBirth, long idNumber,int cellNumber, String username, String password, int startDate, int startMonth,
-			int startYear) {
+			String dateOfBirth, long idNumber, String username, String password, int startDate, int startMonth,
+			int startYear, long cellNumber) {
 
 		Person person = PersonFactory.createPerson(type);
 		if (type.equalsIgnoreCase("CUSTOMER")) {
@@ -80,7 +81,17 @@ public class RegistrationServices {
 							Customer.getAccounts().get(a).setSelectedPackage(selectedPackage);
 							// calendar.add(Calendar.MONTH, choice);
 							System.out.println();
-							Customer.getAccounts().get(a).setEndDate(calendar);
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a)
+									.setEndDate(new GregorianCalendar(
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.YEAR),
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.MONTH),
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.DATE)));
+
+							Customer.getAccounts().get(a).getEndDate().add(Calendar.MONTH, choice);
+
 							// Customer.getAccounts().get(a).getEndDate().getTime().a;
 						}
 

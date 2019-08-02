@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
@@ -21,32 +20,22 @@ public class Main {
 		String type = "", username = "", password = "";
 		int i = 0, startDate = 0, startMonth = 0, startYear = 0;
 		long idNumber = 100200;
-		int cellNumber = 0;
 
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
 		outer: do {
 			idNumber++;
-			int e = 0;
-			int option = 0;
-			do {
-				try {
-					scanner.nextLine();
+
 			System.out.println();
 			System.out.println("================================");
 			System.out.println("Press 1 to register");
 			System.out.println("Press 2 to display customer information");
 			System.out.println("Press 3 to proceed to package activation");
 			System.out.println("Press 4 to check account status");
-			System.out.println("Press 5 to shutdown");
+			System.out.println("Press 5 to extend package");
+			System.out.println("Press 6 to shutdown");
 			System.out.println("=================================");
-			 option = scanner.nextInt();
+			int option = scanner.nextInt();
 			System.out.println("-------------------------------");
-			break;
-			}catch(InputMismatchException ex) {
-				System.out.println("Wrong Input:");
-			}
-			}while(e < 1);
-		
 			switch (option) {
 
 			case 1:
@@ -60,7 +49,6 @@ public class Main {
 
 				for (int a = 0; a < 5;) {
 					try {
-
 						scanner.nextLine();
 						System.out.println("Enter registration type");
 						type = scanner.nextLine();
@@ -90,18 +78,9 @@ public class Main {
 
 				System.out.println("Enter Date of birth(date/month/year)");
 				dateOfBirth = scanner.nextLine();
-				int c = 0;
-				do {
-					try {
-						scanner.nextLine();
-					System.out.println("Enter Cell Number");
-					cellNumber = scanner.nextInt();
-					break;
-					}catch(InputMismatchException ex) {
-					System.out.println("Wrong Input:");
-					}
-				}while(c<1);
-				
+
+				System.out.println("Enter phone number");
+				long phoneNumber = scanner.nextLong();
 
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
 					System.out.println("Enter username");
@@ -117,10 +96,6 @@ public class Main {
 					 */
 					System.out.println("********Workout information**********");
 					System.out.println();
-					int d = 0;
-					do {
-						try {
-							scanner.nextLine();
 					System.out.println("Enter start date");
 					startDate = scanner.nextInt();
 
@@ -130,19 +105,15 @@ public class Main {
 					System.out.println("Enter start year");
 					startYear = scanner.nextInt();
 					System.out.println();
-					break;
-						}catch(InputMismatchException ex) {
-							System.out.println("Wrong Input");
-						}
-					}while(d < 1);
-					
+
+					// break;
 				}
 
 				System.out.println();
 				// List<RegistrationServices> services = new ArrayList<>();
 				System.out.println("ID: " + idNumber);
-				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber, cellNumber,
-						username, password, startDate, startMonth, startYear);
+				registration.registration(type, fname, surname, address, email, dateOfBirth, idNumber, username,
+						password, startDate, startMonth, startYear, phoneNumber);
 
 				// break;
 
@@ -214,26 +185,19 @@ public class Main {
 				} while (n < RegistrationServices.getPersons().size());
 
 				try {
-					int o = 0;
+
 					System.out.println("Package information");
-					do {
+					for (int o = 0; o < RegistrationServices.getPersons().size(); o++) {
 						System.out.println(
 								"NAME: " + RegistrationServices.getPersons().get(o).getSurname().toUpperCase());
-						System.out.println(
-								"Start date: " + Customer.getAccounts().get(o).getStartDate().getTime().getDate() + ", "
-										+ Customer.getAccounts().get(o).getStartDate().getTime().getMonth() + ", "
-										+ Customer.getAccounts().get(o).getStartDate().getTime().getYear());
-						Customer.getAccounts().get(o).getEndDate().add(Calendar.MONTH, choice);
-						System.out.println("End date: " + Customer.getAccounts().get(o).getEndDate().getTime().getDate()
+						System.out.println("Start date: " + Customer.getAccounts().get(o).getStartDate().getTime());
 
-								+ ", " + Customer.getAccounts().get(o).getEndDate().getTime().getMonth() + ", "
-								+ Customer.getAccounts().get(o).getEndDate().getTime().getYear());
-						System.out.println("Package: " + Customer.getAccounts().get(o).getSelectedPackage());
+						System.out.println("End date: " + Customer.getAccounts().get(o).getEndDate().getTime());
 						System.out.println("--------------------------------------------");
 						System.out.println();
 
-						o++;
-					} while (o < RegistrationServices.getPersons().size());
+					}
+
 				} catch (NullPointerException ex) {
 					System.out.println("Null pointer");
 				}
@@ -282,7 +246,56 @@ public class Main {
 					}
 				} while (i < RegistrationServices.getPersons().size());
 				break;
+
 			case 5:
+				int a = 0;
+				byte number = 0;
+				long accNum = 0;
+				System.out.println("*********Account extension********");
+				System.out.println();
+				System.out.println();
+				do {
+					try {
+						scanner.nextLine();
+						System.out.println("Enter membership number");
+						accNum = scanner.nextLong();
+						for (int x = 0; x < RegistrationServices.getPersons().size(); x++) {
+							if (accNum == RegistrationServices.getPersons().get(x).getIdNumber()) {
+								Account account = new Account();
+								System.out.println("Select package");
+								System.out.println();
+								for (Map.Entry<Integer, String> entry : registration.membershipPackages().entrySet())
+									System.out.println(entry.getKey() + " " + " " + entry.getValue());
+								System.out.println();
+								int extend = scanner.nextInt();
+
+								account.extendPackage(extend, accNum);
+								System.out.println();
+								System.out
+										.println("End date: " + Customer.getAccounts().get(x).getStartDate().getTime());
+
+								System.out.println("End date: " + Customer.getAccounts().get(x).getEndDate().getTime());
+
+								number = 100;
+							}
+						}
+						if (number != 100) {
+							throw new IdNumberDoesNotExistException();
+
+						}
+
+					} catch (InputMismatchException ex) {
+						System.out.println("Wrong input");
+					} catch (IdNumberDoesNotExistException ex) {
+						System.out.println(ex.getMessage());
+					} catch (NullPointerException ex) {
+
+					}
+					break;
+				} while (a < RegistrationServices.getPersons().size());
+
+				break;
+			case 6:
 				break outer;
 			}
 		} while (i < 5);

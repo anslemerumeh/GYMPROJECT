@@ -1,6 +1,7 @@
 package src.com.company.registrationServices;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,6 @@ import com.company.people.employee.Employee;
 import com.company.people.person.Person;
 
 public class RegistrationServices {
-	public GregorianCalendar calendar;
 	private Map<Integer, String> packages = new HashMap<>();
 
 	private static List<Person> persons = new ArrayList<>();
@@ -44,13 +44,13 @@ public class RegistrationServices {
 	}
 
 	public void registration(String type, String fname, String surname, String address, String email,
-			String dateOfBirth, long idNumber, int cellNumber, String username, String password, int startDate,
-			int startMonth, int startYear) {
+			String dateOfBirth, long idNumber, String username, String password, int startDate, int startMonth,
+			int startYear, long cellNumber) {
 
 		Person person = PersonFactory.createPerson(type);
 		if (type.equalsIgnoreCase("CUSTOMER")) {
 
-			calendar = new GregorianCalendar(startYear, startMonth, startDate);
+			GregorianCalendar calendar = new GregorianCalendar(startYear, startMonth, startDate);
 
 			Customer.getAccounts().add(new Account(calendar));
 		} else if (type.equalsIgnoreCase("EMPLOYEE")) {
@@ -80,7 +80,17 @@ public class RegistrationServices {
 							Customer.getAccounts().get(a).setSelectedPackage(selectedPackage);
 							// calendar.add(Calendar.MONTH, choice);
 							System.out.println();
-							Customer.getAccounts().get(a).setEndDate(calendar);
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a).getStartDate();
+							Customer.getAccounts().get(a)
+									.setEndDate(new GregorianCalendar(
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.YEAR),
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.MONTH),
+											Customer.getAccounts().get(a).getStartDate().get(Calendar.DATE)));
+
+							Customer.getAccounts().get(a).getEndDate().add(Calendar.MONTH, choice);
+
 							// Customer.getAccounts().get(a).getEndDate().getTime().a;
 						}
 
@@ -92,5 +102,4 @@ public class RegistrationServices {
 		}
 		return selectedPackage;
 	}
-
 }
