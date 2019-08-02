@@ -83,9 +83,19 @@ public class Main {
 
 				System.out.println("Enter email");
 				email = scanner.nextLine();
+				do {
+					try {
+						scanner.nextLine();
 
-				System.out.println("Enter Date of birth(date/month/year)");
-				dateOfBirth = scanner.nextLine();
+						System.out.println("Enter Date of birth(year-month-date)");
+
+						dateOfBirth = scanner.nextLine();
+						break;
+					} catch (InputMismatchException ex) {
+						System.out.println("Wrong input");
+						System.out.println();
+					}
+				} while (i < 5);
 				do {
 					try {
 						scanner.nextLine();

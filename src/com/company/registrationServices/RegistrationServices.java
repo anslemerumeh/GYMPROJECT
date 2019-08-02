@@ -2,6 +2,7 @@ package src.com.company.registrationServices;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +60,7 @@ public class RegistrationServices {
 
 		person.setName(fname);
 		person.setSurname(surname);
-		person.setDateOfBirth(dateOfBirth);
+		person.setDateOfBirth(new Date(dateOfBirth));
 		person.setAddress(address);
 		person.setCellNumber(cellNumber);
 		person.setEmail(email);

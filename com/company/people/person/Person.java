@@ -1,6 +1,7 @@
 package com.company.people.person;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.company.account.Account;
@@ -11,7 +12,7 @@ public abstract class Person {
 	private String surname;
 	private String address;
 	private String email;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private long idNumber;
 	private long cellNumber;
 	private static List<Account> accounts = new ArrayList<>();
@@ -67,12 +68,12 @@ public abstract class Person {
 		this.email = email;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
