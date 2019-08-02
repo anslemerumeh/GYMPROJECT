@@ -26,6 +26,7 @@ public class Main {
 			idNumber++;
 			do {
 				try {
+
 					scanner.nextLine();
 					System.out.println();
 					System.out.println("================================");
