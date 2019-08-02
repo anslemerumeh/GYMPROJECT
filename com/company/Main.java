@@ -19,6 +19,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String type = "", username = "", password = "";
 		int i = 0, startDate = 0, startMonth = 0, startYear = 0;
+		long phoneNumber = 0;
 		long idNumber = 100200;
 
 		String dateOfBirth = "", fname = "", surname = "", email = "", address = "";
@@ -78,9 +79,17 @@ public class Main {
 
 				System.out.println("Enter Date of birth(date/month/year)");
 				dateOfBirth = scanner.nextLine();
-
-				System.out.println("Enter phone number");
-				long phoneNumber = scanner.nextLong();
+				do {
+					try {
+						scanner.nextLine();
+						System.out.println("Enter phone number");
+						phoneNumber = scanner.nextLong();
+						break;
+					} catch (InputMismatchException ex) {
+						System.out.println("Wrong input");
+						System.out.println();
+					}
+				} while (i < 5);
 
 				if (type.equalsIgnoreCase("EMPLOYEE")) {
 					System.out.println("Enter username");
@@ -95,17 +104,25 @@ public class Main {
 					 * String answer = scanner.nextLine(); switch (answer) { case "y":
 					 */
 					System.out.println("********Workout information**********");
-					System.out.println();
-					System.out.println("Enter start date");
-					startDate = scanner.nextInt();
+					do {
+						try {
+							scanner.nextLine();
+							System.out.println();
+							System.out.println("Enter start date");
+							startDate = scanner.nextInt();
 
-					System.out.println("Enter start month");
-					startMonth = scanner.nextInt();
+							System.out.println("Enter start month");
+							startMonth = scanner.nextInt();
 
-					System.out.println("Enter start year");
-					startYear = scanner.nextInt();
-					System.out.println();
-
+							System.out.println("Enter start year");
+							startYear = scanner.nextInt();
+							System.out.println();
+							break;
+						} catch (InputMismatchException ex) {
+							System.out.println("Wrong input");
+							System.out.println();
+						}
+					} while (i < 5);
 					// break;
 				}
 
